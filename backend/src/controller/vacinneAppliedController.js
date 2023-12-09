@@ -1,5 +1,5 @@
 const pool = require('../service/index')
-const { getAllVaccineAppliedService, createVaccineAppliedService } = require('../service/vacinneAppliedService')
+const { getAllVaccineAppliedService, createVaccineAppliedService, deleteVaccineApliedService } = require('../service/vacinneAppliedService')
 
 
 const getAllVaccineAppliedController = async (req, res) => {
@@ -11,7 +11,6 @@ const getAllVaccineAppliedController = async (req, res) => {
     return res.json(vaccineApplied)
 }
 
-
 const createVaccineAppliedController = async (req, res) => {
     const { id_paciente, id_vacina, data_aplicacao } = req.body
 
@@ -21,17 +20,11 @@ const createVaccineAppliedController = async (req, res) => {
 }
 
 const deleteVaccineApliedController = async (req, res) => {
-    const { id_vacina } = req.body
+    const { id_vacina, id_paciente } = req.body
 
-    const findVacina = await pool.query(`select * from vacina where (id_vacina = $1)`, [id_vacina])
+    const vacinaDeleted = await deleteVaccineApliedService(id_vacina, id_paciente)
 
-    if (findVacina.rowCount === 0) {
-        throw new error('não existe vacina para o id informado')
-    }
-
-    const vacinaDeleted = await pool.query(`delete vacina where('id_vacina' = $1)`, [id_vacina])
-
-    return res.json({ mensagem: "vacina excluida com sucesso" })
+    return res.json(vacinaDeleted)
 
 }
 

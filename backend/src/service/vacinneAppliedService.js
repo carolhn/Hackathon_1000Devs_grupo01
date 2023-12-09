@@ -43,22 +43,22 @@ const createVaccineAppliedService = async (id_paciente, id_vacina, data_aplicaca
 
 
 
-const deleteVaccineApliedService = async (id_vacina) => {
+const deleteVaccineApliedService = async (id_vacina, id_paciente) => {
 
-    const findVacina = await pool.query(`select * from vacina where (id_vacina = $1)`, [id_vacina])
 
-    if (findVacina.rowCount === 0) {
-        throw new error('não existe vacina para o id informado')
+    const findVaccineApplied = await pool.query(`select * from vacinaaplicada where(id_vacina = $1 and id_paciente = $2)`,
+        [id_vacina, id_paciente])
+
+    if (findVaccineApplied.rows < 1) {
+
+        throw new Error(' o registro informado não existe no banco de dados')
     }
 
-    const vacinaDeleted = await pool.query(`delete vacina where('id_vacina' = $1)`, [id_vacina])
+    const vacinaDeleted = await pool.query(`delete from vacinaaplicada where(id_vacina = $1 and 
+        id_paciente = $2)`, [id_vacina, id_paciente])
 
-    return ({ mensagem: "vacina excluida com sucesso" })
-
+    return { mensagem: "vacina excluida com sucesso" }
 }
-
-
-
 
 module.exports = {
     createVaccineAppliedService,
