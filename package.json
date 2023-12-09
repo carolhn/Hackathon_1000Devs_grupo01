@@ -1,9 +1,9 @@
 {
   "name": "hackathon_1000devs_grupo01",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "backend/src/server.js",
   "scripts": {
-    "dev": "node backend/src/server.js",
+    "dev": "nodemon .",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },
@@ -23,7 +23,8 @@
     "@types/node": "^20.10.4",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
-    "eslint": "^8.55.0"
+    "eslint": "^8.55.0",
+    "nodemon": "^3.0.2"
   },
   "dependencies": {
     "cors": "^2.8.5",
