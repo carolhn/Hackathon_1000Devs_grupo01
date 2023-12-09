@@ -1,14 +1,15 @@
 const { Router } = require('express')
-const {createPacientController, getAllPacientscontroller, updatePacientController, getPacientByIdController} = require('../controller/patient.controller')
+const { getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController } = require('../controller/vacinneAppliedController')
+const { createPacientController, getAllPacientscontroller, updatePacientController, getPacientByIdController } = require('../controller/patient.controller')
 const routes = Router()
 
-//Get all pacients
-routes.get('/paciente',getAllPacientscontroller)
-//CREATE Patient
-routes.post("/paciente",createPacientController) 
-//Update Patient
-routes.patch("/paciente/:id",updatePacientController) 
-//Get patient by id
-routes.get('/paciente/:id',getPacientByIdController)
+
+routes.post("/paciente", createPacientController)
+routes.patch("/paciente/:id", updatePacientController)
+routes.get('/paciente/:id', getPacientByIdController)
+
+routes.get('/vacinaAplicada/:id_paciente', getAllVaccineAppliedController)
+routes.post('/vacinaAplicada', createVaccineAppliedController)
+routes.delete('/vacinaAplicada', deleteVaccineApliedController)
 
 module.exports = routes
