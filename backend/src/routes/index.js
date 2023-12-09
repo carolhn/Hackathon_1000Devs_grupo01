@@ -1,9 +1,14 @@
-import { Router } from 'express'
-
+const { Router } = require('express')
+const {createPacientController, getAllPacientscontroller, updatePacientController, getPacientByIdController} = require('../controller/patient.controller')
 const routes = Router()
 
-routes.get('/', (request, response) => {
-    return response.json({ message: 'Hello World' })
-})
+//Get all pacients
+routes.get('/paciente',getAllPacientscontroller)
+//CREATE Patient
+routes.post("/paciente",createPacientController) 
+//Update Patient
+routes.patch("/paciente/:id",updatePacientController) 
+//Get patient by id
+routes.get('/paciente/:id',getPacientByIdController)
 
-export default routes
+module.exports = routes

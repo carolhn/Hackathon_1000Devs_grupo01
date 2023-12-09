@@ -1,10 +1,18 @@
 const express = require('express')
-
+const routes = require('./routes/index')
 const app = express()
-app.use(express.json())
 
-app.get('/', (_request, response) => {
-    response.send()
-})
+app.use(express.json())
+app.use(routes)
+
+// app.get('/', (_request, response) => {
+//     response.send()
+// })
+
+// app.get('/', (_request, response) => {
+//     response.send("Olá mundo")
+// })
+
+
 
 module.exports = app
