@@ -1,9 +1,9 @@
 {
   "name": "hackathon_1000devs_grupo01",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "backend/src/server.js",
   "scripts": {
-    "dev": "nodemon backend/src/server.js",
+    "dev": "nodemon .",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },
