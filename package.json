@@ -1,0 +1,20 @@
+{
+  "name": "hackathon_1000devs_grupo01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolhn/Hackathon_1000Devs_grupo01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carolhn/Hackathon_1000Devs_grupo01/issues"
+  },
+  "homepage": "https://github.com/carolhn/Hackathon_1000Devs_grupo01#readme"
+}
