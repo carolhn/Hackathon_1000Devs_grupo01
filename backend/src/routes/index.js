@@ -1,16 +1,9 @@
 const { Router } = require('express')
-const pool = require('../model/connection')
-
+const { getAllVaccineAppliedController, createVaccineAppliedController } = require('../controller/vacinneAppliedController')
 
 const routes = Router()
 
-routes.get('/', (request, response) => {
-    return response.json({ message: 'Hello World' })
-})
-
-routes.get('/vacina', async (req, res) => {
-    const vacinacao = await pool.query('select * from vacina')
-    return res.send(vacinacao)
-})
+routes.get('/vacinaAplicada/:id_paciente', getAllVaccineAppliedController)
+routes.post('/vacinaAplicada', createVaccineAppliedController)
 
 module.exports = routes
