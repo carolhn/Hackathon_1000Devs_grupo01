@@ -1,9 +1,11 @@
 const { Router } = require('express')
 const { createPacientController, updatePacientController, getPacientByIdController,
-    getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController,
-    getVacineByPeriodController, getVaccineProtectionController, getProtectionVaccineUntilYearControler,
-    getProtectionVaccineExactYearControler, getProtectionVaccineUntilMonthControler, getProtectionVaccineExactMonthControler,
-    getPatientVacinneControler, getPatientMissingVacinneControler } = require('../controller')
+        getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController,
+        getVacineByPeriodController, getVaccineProtectionController, getProtectionVaccineUntilYearControler,
+        getProtectionVaccineExactYearControler, getProtectionVaccineUntilMonthControler,
+        getProtectionVaccineExactMonthControler, createCampaingController, updateCampaingController,
+        createVaccineInCampaingController, deleteVaccineInCampaingController, searchCampaingForDataController, 
+        campaingByProtectionController,getPatientVacinneControler, getPatientMissingVacinneControler} = require('../controller')
 
 
 
@@ -31,6 +33,13 @@ routes.get('/vacinaPaciente/:id_paciente', getPatientVacinneControler)
 routes.get('/vacinaFaltaPaciente/:id_paciente', getPatientMissingVacinneControler)
 
 
+
+routes.post('/campanha', createCampaingController)
+routes.patch('/campanha/:id', updateCampaingController)
+routes.post('/campanha/vacina', createVaccineInCampaingController)
+routes.delete('/campanha/vacina/:id', deleteVaccineInCampaingController)
+routes.get('/campanhadate/:date', searchCampaingForDataController)
+routes.get('/campanhaprotecao/:disease', campaingByProtectionController)
 
 
 module.exports = routes
