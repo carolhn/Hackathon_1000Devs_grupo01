@@ -23,4 +23,7 @@ routes.get('/consultaVacinaMes', protectionVaccineUntilMonthControler)
 routes.get('/consultaVacinaMesExato', protectionVaccineExactMonthControler)
 
 
+
+get
+
 module.exports = routes
