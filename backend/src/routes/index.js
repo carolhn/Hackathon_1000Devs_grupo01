@@ -2,7 +2,6 @@ const { Router } = require('express')
 const { getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController } = require('../controller/vacinneAppliedController')
 const { createPacientController, updatePacientController, getPacientByIdController } = require('../controller/patient.controller')
 const { getVacineByPeriodController, getVaccineProtectionController } = require('../controller/vacina.controller')
-const { getVacineByPeriodController } = require('../controller/vacina.controller')
 const { protectionVaccineUntilYearControler, protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler } = require('../controller/VaccineAgeControler')
 
 const routes = Router()

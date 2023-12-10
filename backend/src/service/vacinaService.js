@@ -17,7 +17,7 @@ const getVacineByPeriodService = async() => {
 const getVaccineProtectionService = async(disease) => {
     disease = "%" + disease + "%"
     const response = await pool.query(`SELECT * FROM vacina
-    WHERE doenca_protecao LIKE $1`, [disease])
+    WHERE doenca_protecao ILIKE $1`, [disease])
 
     return response
 }
