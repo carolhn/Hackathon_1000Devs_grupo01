@@ -1,38 +1,37 @@
-const pool = require('../model/connection')
-const { protectionVaccineExactMonthService, protectionVaccineUntilMonthService, protectionVaccineExactYearService } = require('../service/VaccineAgeService')
+const { getProtectionVaccineUntilYearService, getProtectionVaccineExactYearService, getProtectionVaccineUntilMonthService, getProtectionVaccineExactMonthService } = require('../service/VaccineAgeService')
 
-const protectionVaccineUntilYearControler = async (req, res) => {
+const getProtectionVaccineUntilYearControler = async (req, res) => {
     const { idadeAno } = req.body
 
-    const vaccineAgeProtectionAge = await protectionVaccineUntilMonthService(idadeAno)
+    const vaccineAgeProtectionAge = await getProtectionVaccineUntilYearService(idadeAno)
 
     return res.json(vaccineAgeProtectionAge)
 
 }
 
-const protectionVaccineExactYearControler = async (req, res) => {
+const getProtectionVaccineExactYearControler = async (req, res) => {
     const { idadeAno } = req.body
 
-    const vaccineAgeProtectionAge = await protectionVaccineExactYearService(idadeAno)
+    const vaccineAgeProtectionAge = await getProtectionVaccineExactYearService(idadeAno)
 
     return res.json(vaccineAgeProtectionAge)
 
 }
 
 
-const protectionVaccineUntilMonthControler = async (req, res) => {
+const getProtectionVaccineUntilMonthControler = async (req, res) => {
     const { idadeMes } = req.body
 
-    const vaccineAgeProtectionMonth = await protectionVaccineUntilMonthService(idadeMes)
+    const vaccineAgeProtectionMonth = await getProtectionVaccineUntilMonthService(idadeMes)
 
     return res.json(vaccineAgeProtectionMonth)
 }
 
 
-const protectionVaccineExactMonthControler = async (req, res) => {
+const getProtectionVaccineExactMonthControler = async (req, res) => {
     const { idadeMes } = req.body
 
-    const vaccineAgeProtectionMonth = await protectionVaccineExactMonthService(idadeMes)
+    const vaccineAgeProtectionMonth = await getProtectionVaccineExactMonthService(idadeMes)
 
     return res.json(vaccineAgeProtectionMonth)
 
@@ -44,8 +43,8 @@ const protectionVaccineExactMonthControler = async (req, res) => {
 
 
 module.exports = {
-    protectionVaccineUntilYearControler,
-    protectionVaccineExactYearControler,
-    protectionVaccineUntilMonthControler,
-    protectionVaccineExactMonthControler
+    getProtectionVaccineUntilYearControler,
+    getProtectionVaccineExactYearControler,
+    getProtectionVaccineUntilMonthControler,
+    getProtectionVaccineExactMonthControler
 }
