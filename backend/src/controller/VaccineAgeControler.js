@@ -33,7 +33,7 @@ const getProtectionVaccineExactMonthControler = async (req, res) => {
 
     const vaccineAgeProtectionMonth = await getProtectionVaccineExactMonthService(idadeMes)
 
-    return res.json(vaccineAgeProtectionMonth)
+    return res.json('sucesso na exclusão da aplicação da vacina')
 
 }
 
