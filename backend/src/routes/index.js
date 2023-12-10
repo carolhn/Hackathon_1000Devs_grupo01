@@ -5,7 +5,7 @@ const { createPacientController, updatePacientController, getPacientByIdControll
         getProtectionVaccineExactYearControler, getProtectionVaccineUntilMonthControler,
         getProtectionVaccineExactMonthControler, createCampaingController, updateCampaingController,
         createVaccineInCampaingController, deleteVaccineInCampaingController, searchCampaingForDataController, 
-        campaingByProtectionController,getPatientVacinneControler, getPatientMissingVacinneControler} = require('../controller')
+        campaingByProtectionController,getPatientVacinneControler, getPatientMissingVacinneControler, createVaccineController} = require('../controller')
 
 
 
@@ -40,6 +40,8 @@ routes.post('/campanha/vacina', createVaccineInCampaingController)
 routes.delete('/campanha/vacina/:id', deleteVaccineInCampaingController)
 routes.get('/campanhadate/:date', searchCampaingForDataController)
 routes.get('/campanhaprotecao/:disease', campaingByProtectionController)
+
+routes.post("/vacina", createVaccineController)
 
 
 module.exports = routes

@@ -8,8 +8,8 @@ const { createCampaingController, updateCampaingController,
         createVaccineInCampaingController,
         deleteVaccineInCampaingController,searchCampaingForDataController,
         campaingByProtectionController} = require("../controller/campaingController")
-
 const { getPatientVacinneControler, getPatientMissingVacinneControler } = require('../controller/searchVaccinePatientController')
+const {createVaccineController} = require("../controller/createVaccineController")
 
 module.exports = {
     createPacientController,
@@ -31,5 +31,6 @@ module.exports = {
     searchCampaingForDataController,
     campaingByProtectionController,
     getPatientVacinneControler,
-    getPatientMissingVacinneControler
+    getPatientMissingVacinneControler,
+    createVaccineController
 }
