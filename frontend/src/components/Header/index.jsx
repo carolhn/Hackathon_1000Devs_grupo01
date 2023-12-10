@@ -59,15 +59,16 @@ export function Header() {
 
     const patientList = [
         {
-            label: 'Cadastrar Paciente',
+            label: <Link to="/pacientes/create">Cadastrar Paciente</Link>,
             key: '1',
+
             style: { fontSize: '14px' }
         },
         {
             type: 'divider',
         },
         {
-            label: 'Mostar Pacientes',
+            label: <Link to="/pacientes/show">Mostar Paciente</Link>,
             key: '2',
             style: { fontSize: '14px' }
         },
@@ -75,7 +76,7 @@ export function Header() {
             type: 'divider',
         },
         {
-            label: 'Atualizar Paciente',
+            label: <Link to="/pacientes/update">Atualizar Paciente</Link>,
             key: '3',
             style: { fontSize: '14px' }
         },

@@ -10,7 +10,7 @@ const createPacientService = async (id_paciente, nome, data_nascimento) => {
     id_paciente = Math.max(...idsPacients) + 1
     const paciente = await pool.query(`INSERT INTO paciente (id_paciente,
         nome,
-        data_nascimento) 
+        data_nascimento)
         VALUES
             ($1, $2, $3) RETURNING *`, [id_paciente, nome, data_nascimento])
 
@@ -24,10 +24,12 @@ const getAllPacientsServices = async () => {
 }
 
 const updatePacientService = async (body, id) => {
+    const { rows } = await pool.query(`UPDATE paciente SET name = $1,
+
     const { rows } = await pool.query(`UPDATE paciente SET nome = $1,
         data_nascimento = $2 
         WHERE
-        id_paciente = $3 RETURNING *`, [body.name, body.data_nascimento, id])
+        id_paciente = $3 RETURNING *`, [body.nome, body.data_nascimento, id])
 
     return rows
 }
