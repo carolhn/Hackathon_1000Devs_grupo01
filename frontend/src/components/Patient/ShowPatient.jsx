@@ -1,33 +1,54 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getPacienteById } from '../../API/fetchPattient';
+import { Card, CardContent, Typography, Container } from '@mui/material';
 
 export function ShowPatient() {
-    const [pacienteId, setPacienteId] = useState('');
-    const [paciente, setPaciente] = useState(null);
+    const [pacientes, setPacientes] = useState([]);
 
-    const handleGetPacienteById = async () => {
-        try {
-            const pacienteEncontrado = await getPacienteById(pacienteId);
-            setPaciente(pacienteEncontrado);
-            console.log('Paciente encontrado:', pacienteEncontrado);
-        } catch (error) {
-            console.error('Erro ao obter paciente:', error);
-        }
-    };
+    useEffect(() => {
+        getPacienteById(1).then((data) => setPacientes(data));
+    }, []);
 
     return (
-        <div>
-            <h2>Mostrar Paciente</h2>
-            <input type="text" placeholder="ID do Paciente" value={pacienteId} onChange={(e) => setPacienteId(e.target.value)} />
-            <button onClick={handleGetPacienteById}>Mostrar Paciente</button>
-            {paciente && (
-                <div>
-                    <p>ID: {paciente.id}</p>
-                    <p>Nome: {paciente.nome}</p>
-                    <p>Data de Nascimento: {paciente.data_nascimento}</p>
-                </div>
-            )}
-        </div>
+        <Container
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: '85px'
+            }}
+        >
+            <div>
+                <Typography
+                    color="#14274A"
+                    display="flex"
+                    fontSize="28px"
+                    marginBottom="20px"
+                    marginTop="30px"
+                    fontWeight={600}
+                    fontFamily='Abhaya Libre'
+                >
+                    Mostrar Pacientes
+                </Typography>
+            </div>
+            <Card sx={{ minWidth: 275, maxWidth: 400, boxShadow: 8, marginTop: '20px' }}>
+                <CardContent>
+                    {pacientes.map((paciente) => (
+                        <div key={paciente.id_paciente}>
+                            <Typography variant="body2" color="text.secondary">
+                                ID: {paciente.id_paciente}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Nome: {paciente.nome}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Data de Nascimento: {new Date(paciente.data_nascimento).toLocaleDateString()}
+                            </Typography>
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
+        </Container>
     );
 }
-

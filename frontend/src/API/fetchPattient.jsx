@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:5432';
+const baseURL = 'http://localhost:3001';
 
 const api = axios.create({
     baseURL,
@@ -8,16 +8,13 @@ const api = axios.create({
 
 export const createPaciente = async (pacienteData) => {
     try {
-        console.log('Dados enviados:', pacienteData);
         const response = await api.post('/paciente', pacienteData);
-        console.log('Resposta do servidor:', response.data);
         return response.data;
     } catch (error) {
         console.error('Error creating paciente:', error);
         throw error;
     }
 };
-
 
 export const getPacienteById = async (pacienteId) => {
     try {
