@@ -2,7 +2,7 @@ const { Router } = require('express')
 const { createPacientController, updatePacientController, getPacientByIdController,
         getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController,
         getVacineByPeriodController, getVaccineProtectionController, protectionVaccineUntilYearControler,
-        protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler } = require('../controller')
+        protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler, createCampaingController, updateCampaingController } = require('../controller')
 
 
 const routes = Router()
@@ -23,6 +23,9 @@ routes.get('/consultaVacinaIdade', protectionVaccineUntilYearControler)
 routes.get('/consultaVacinaIdadeExata', protectionVaccineExactYearControler)
 routes.get('/consultaVacinaMes', protectionVaccineUntilMonthControler)
 routes.get('/consultaVacinaMesExato', protectionVaccineExactMonthControler)
+
+routes.post('/campanha', createCampaingController)
+routes.patch('/campanha/:id', updateCampaingController)
 
 
 module.exports = routes

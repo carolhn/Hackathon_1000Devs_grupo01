@@ -4,6 +4,8 @@ const { createPacientController, updatePacientController, getPacientByIdControll
 const { getVacineByPeriodController} = require('../controller/vaccineByPeriod.controller')
 const { protectionVaccineUntilYearControler, protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler } = require('../controller/VaccineAgeControler')
 const { getVaccineProtectionController } = require('../controller/vaccineByProtectionController')
+const { createCampaingController, updateCampaingController} = require("../controller/campaingController")
+
 
 module.exports = {
     createPacientController,
@@ -17,5 +19,7 @@ module.exports = {
     getVaccineProtectionController,
     getAllVaccineAppliedController,
     createVaccineAppliedController,
-    deleteVaccineApliedController
+    deleteVaccineApliedController,
+    createCampaingController,
+    updateCampaingController
 }
