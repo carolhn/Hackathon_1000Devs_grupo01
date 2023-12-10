@@ -25,6 +25,8 @@ const getAllPacientsServices = async () => {
 
 const updatePacientService = async (body, id) => {
     const { rows } = await pool.query(`UPDATE paciente SET name = $1,
+
+    const { rows } = await pool.query(`UPDATE paciente SET nome = $1,
         data_nascimento = $2 
         WHERE
         id_paciente = $3 RETURNING *`, [body.nome, body.data_nascimento, id])
