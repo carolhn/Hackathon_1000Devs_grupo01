@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 export function Header() {
 
     return (
-        <Box sx={{ backgroundColor: '#3C3C3D', padding: '24px 124px 24px' }}>
+        <Box sx={{ backgroundColor: '#031A4B', padding: '24px 124px 24px' }}>
             <Toolbar
                 sx={{
                     display: 'flex',

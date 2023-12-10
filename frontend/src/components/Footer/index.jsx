@@ -4,7 +4,7 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 
 export function Footer() {
     return (
-        <Stack sx={{ backgroundColor: '#3C3C3D', padding: '40px 20px', color: '#fff' }} width="100%">
+        <Stack sx={{ backgroundColor: '#031A4B', padding: '40px 20px', color: '#fff', marginBottom: '-20px' }}>
             <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} justifyContent="space-around" alignItems={{ xs: 'center', md: 'flex-start' }} mb={{ xs: '20px', md: '0' }}>
                 <Box>
                     <Typography variant="h6" fontFamily="Montserrat" fontSize="29px" fontWeight={400} lineHeight="2.2">
@@ -37,7 +37,7 @@ export function Footer() {
                         sx={{
                             width: '100%',
                             border: '2px solid rgba(255, 255, 255, 1)',
-                            backgroundColor: '#3C3C3D',
+                            backgroundColor: '#031A4B',
                             textTransform: 'none',
                             fontSize: '16px',
                         }}

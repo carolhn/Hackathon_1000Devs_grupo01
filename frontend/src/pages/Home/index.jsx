@@ -1,6 +1,8 @@
-export default function Home() {
+import './style.css';
+
+export function Home() {
     return (
-        <div>
+        <div className="home-container">
             <p>Home aqui</p>
         </div>
     );
