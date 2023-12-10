@@ -11,6 +11,7 @@ const getVacineByPeriodService = async() => {
                                         ORDER BY va.id_vacina
                                         `)
     return response
+    
 }
 
 module.exports = {
