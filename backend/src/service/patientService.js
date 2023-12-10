@@ -1,6 +1,6 @@
 const pool = require("../model/connection")
 
-const createPacientService = async (id_paciente, name, data_nascimento) => {
+const createPacientService = async (id_paciente, nome, data_nascimento) => {
     const allPacients = await getAllPacientsServices()
     const idsPacients = []
     allPacients.forEach((pacient) => {
