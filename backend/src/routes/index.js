@@ -1,8 +1,9 @@
 const { Router } = require('express')
-const { getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController } = require('../controller/vacinneAppliedController')
-const { createPacientController, updatePacientController, getPacientByIdController } = require('../controller/patient.controller')
-const { getVacineByPeriodController, getVaccineProtectionController } = require('../controller/vacina.controller')
-const { protectionVaccineUntilYearControler, protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler } = require('../controller/VaccineAgeControler')
+const { createPacientController, updatePacientController, getPacientByIdController,
+        getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController,
+        getVacineByPeriodController, getVaccineProtectionController, protectionVaccineUntilYearControler,
+        protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler } = require('../controller')
+
 
 const routes = Router()
 
@@ -17,7 +18,6 @@ routes.delete('/vacinaAplicada', deleteVaccineApliedController)
 
 routes.get('/vacinasporperiodo',getVacineByPeriodController)
 routes.get('/vacinasporprotecao/:doenca',getVaccineProtectionController)
-routes.get('/vacinasporperiodo', getVacineByPeriodController)
 
 routes.get('/consultaVacinaIdade', protectionVaccineUntilYearControler)
 routes.get('/consultaVacinaIdadeExata', protectionVaccineExactYearControler)
