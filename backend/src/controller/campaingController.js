@@ -1,4 +1,4 @@
-const { createCampaingService, updateCampaingService } = require("../service/campaingService")
+const { createCampaingService, updateCampaingService, createVaccineInCampaingService, deleteVaccineInCampaingService } = require("../service/campaingService")
 
 
 const createCampaingController = async (req, res) => {
@@ -17,4 +17,23 @@ const updateCampaingController = async(req, res) => {
     return res.status(200).json(updatedCampaing)
 }
 
-module.exports = {createCampaingController, updateCampaingController}
+const createVaccineInCampaingController = async(req, res) => {
+    const {id_campanha, id_vacina} = req.body
+
+    const newVacineCampaing = await createVaccineInCampaingService(id_campanha, id_vacina)
+
+    return res.status(201).json(newVacineCampaing)
+}
+
+const deleteVaccineInCampaingController = async(req, res) => {
+    const id = req.params.id
+    await deleteVaccineInCampaingService(id)
+
+    return res.status(204).send()
+}
+
+module.exports = {
+    createCampaingController,
+    updateCampaingController,
+    createVaccineInCampaingController,
+    deleteVaccineInCampaingController}

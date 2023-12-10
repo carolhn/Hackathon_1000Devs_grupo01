@@ -23,4 +23,28 @@ const updateCampaingService = async(descricao, data_inicio, data_fim, id) => {
     return rows
 }
 
-    module.exports = {createCampaingService, updateCampaingService}
+const createVaccineInCampaingService = async(id_campanha, id_vacina) => {
+    const campaing = await pool.query(`SELECT * FROM campanha WHERE id_campanha = $1`, [id_campanha])
+    const vaccine = await pool.query(`SELECT * FROM vacina WHERE id_vacina = $1`, [id_vacina])
+
+    if(!campaing || !vaccine){
+        throw new Error("O id da campanha ou da vacina estão incorretos!")
+    }
+
+    const {rows} = await pool.query(`INSERT INTO campanhavacina (id_campanha, id_vacina)
+                                    VALUES ($1, $2) RETURNING *`, [id_campanha, id_vacina])
+
+    return rows
+}
+
+const deleteVaccineInCampaingService = async(id) => {
+    await pool.query("DELETE FROM campanhavacina WHERE id_vacina = $1", [id])
+
+    return "Item deletado com sucesso"
+}
+
+    module.exports = {
+        createCampaingService,
+        updateCampaingService,
+        createVaccineInCampaingService,
+        deleteVaccineInCampaingService}
