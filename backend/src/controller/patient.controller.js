@@ -1,8 +1,8 @@
 const { createPacientService, updatePacientService, getPacientByIdServices, getAllPacientsServices } = require("../service/patientService")
 
 const createPacientController = async (req, res) => {
-    const { id_paciente, name, data_nascimento } = req.body
-    const newPaciente = await createPacientService(id_paciente, name, data_nascimento)
+    const { id_paciente, nome, data_nascimento } = req.body
+    const newPaciente = await createPacientService(id_paciente, nome, data_nascimento)
 
     res.status(201).json(newPaciente.rows)
 }

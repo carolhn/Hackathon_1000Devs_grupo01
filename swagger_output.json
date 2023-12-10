@@ -1,0 +1,576 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Carteira de Vacinação",
+    "description": "Api para controle de Vacinação",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "tags": [
+    {
+      "description": "<h2>Está é uma api onde você pode se cadastrar ver vacinas por idade vem campanhas por data entre outras funcionalidade. Bom uso!</h2>"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/paciente": {
+      "post": {
+        "tags": [
+          "Rotas Paciente"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "data_nascimento": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "nome",
+                "data_nascimento"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/paciente/{id}": {
+      "patch": {
+        "tags": [
+          "Rotas Paciente"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "data_nascimento": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Rotas Paciente"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaAplicada/{id_paciente}": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_paciente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaAplicada": {
+      "post": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Rotas paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "id_paciente": {
+                  "type": "number"
+                },
+                "id_vacina": {
+                  "type": "number"
+                },
+                "data_aplicacao": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "id_vacina": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinasporperiodo": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinasporprotecao/{doenca}": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "doenca",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/consultaVacinaIdade": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "idadeAno": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/consultaVacinaIdadeExata": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "idadeAno": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/consultaVacinaMes": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "idadeMes": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/consultaVacinaMesExato": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "idadeMes": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaPaciente/{id_paciente}": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_paciente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacinaFaltaPaciente/{id_paciente}": {
+      "get": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_paciente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanha": {
+      "post": {
+        "tags": [
+          "Rotas Campanha"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "descricao": {
+                  "type": "number"
+                },
+                "data_inicio": {
+                  "type": "number"
+                },
+                "data_fim": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanha/{id}": {
+      "patch": {
+        "tags": [
+          "Rotas Campanha"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "descricao": {
+                  "type": "number"
+                },
+                "data_inicio": {
+                  "type": "number"
+                },
+                "data_fim": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanha/vacina": {
+      "post": {
+        "tags": [
+          "Rotas Campanha"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "id_campanha": {
+                  "type": "number"
+                },
+                "id_vacina": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanha/vacina/{id}": {
+      "delete": {
+        "tags": [
+          "Rotas Campanha"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanhadate/{date}": {
+      "get": {
+        "tags": [
+          "Rotas Campanha"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/campanhaprotecao/{disease}": {
+      "get": {
+        "tags": [
+          "Rotas Campanha"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "disease",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/vacina": {
+      "post": {
+        "tags": [
+          "Rotas Vacinas"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "paciente",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "properties": {
+                "vacina": {
+                  "type": "string"
+                },
+                "sigla_vacina": {
+                  "type": "string"
+                },
+                "doenca_protecao": {
+                  "type": "string"
+                },
+                "dose": {
+                  "type": "string"
+                },
+                "id_rede": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

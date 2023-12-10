@@ -1,6 +1,6 @@
 const pool = require("../model/connection")
 
-const createPacientService = async(id_paciente, name, data_nascimento) => {
+const createPacientService = async(id_paciente, nome, data_nascimento) => {
     const allPacients = await getAllPacientsServices()
     const idsPacients = []
     allPacients.forEach((pacient) =>{
@@ -12,7 +12,7 @@ const createPacientService = async(id_paciente, name, data_nascimento) => {
         nome,
         data_nascimento) 
         VALUES
-            ($1, $2, $3) RETURNING *`, [id_paciente, name, data_nascimento])
+            ($1, $2, $3) RETURNING *`, [id_paciente, nome, data_nascimento])
 
     return paciente
 }
