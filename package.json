@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "backend/src/server.js",
   "scripts": {
-    "dev": "nodemon .",
+    "start": "node ./swagger/swagger.js & node ./backend/src/app.js",
+    "dev": " nodemon .",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },
@@ -11,7 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/carolhn/Hackathon_1000Devs_grupo01.git"
   },
-  "keywords": [],
+  "keywords": [
+    "swagger"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
