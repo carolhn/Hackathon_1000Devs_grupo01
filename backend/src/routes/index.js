@@ -1,17 +1,18 @@
 const { Router } = require('express')
 const { createPacientController, updatePacientController, getPacientByIdController,
-        getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController,
-        getVacineByPeriodController, getVaccineProtectionController, getProtectionVaccineUntilYearControler,
-        getProtectionVaccineExactYearControler, getProtectionVaccineUntilMonthControler,
-        getProtectionVaccineExactMonthControler, createCampaingController, updateCampaingController,
-        createVaccineInCampaingController, deleteVaccineInCampaingController, searchCampaingForDataController, 
-        campaingByProtectionController,getPatientVacinneControler, getPatientMissingVacinneControler, createVaccineController} = require('../controller')
+    getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController,
+    getVacineByPeriodController, getVaccineProtectionController, getProtectionVaccineUntilYearControler,
+    getProtectionVaccineExactYearControler, getProtectionVaccineUntilMonthControler,
+    getProtectionVaccineExactMonthControler, createCampaingController, updateCampaingController,
+    createVaccineInCampaingController, deleteVaccineInCampaingController, searchCampaingForDataController,
+    campaingByProtectionController, getPatientVacinneControler, getPatientMissingVacinneControler,
+    createVaccineController, updateVaccineController, createVaccineApplicationYearController,
+    deleteVaccineApplicationYearController, createVaccineApplicationMonthController, deleteVaccineApplicationmonthController,
+} = require('../controller')
+
 const express = require("express")
 const { getAllPacientscontroller } = require('../controller/patient.controller')
 const router = express.Router()
-
-
-
 const routes = Router()
 
 routes.post("/paciente", createPacientController /*
@@ -279,5 +280,10 @@ routes.post("/vacina", createVaccineController /*
   } 
   */)
 
-
+routes.post("/vacina", createVaccineController)
+routes.patch("/vacina/:id_vacina", updateVaccineController)
+routes.post("/vacinaAplicacaoAno", createVaccineApplicationYearController)
+routes.delete("/vacinaAplicacaoAno/:id", deleteVaccineApplicationYearController)
+routes.post("/vacinaAplicacaoMes", createVaccineApplicationMonthController)
+routes.delete("/vacinaAplicacaoMes/:id", deleteVaccineApplicationmonthController)
 module.exports = routes
