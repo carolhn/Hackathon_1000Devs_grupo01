@@ -43,8 +43,32 @@ const deleteVaccineInCampaingService = async(id) => {
     return "Item deletado com sucesso"
 }
 
+const searchCampaingForDataService = async(date) => {
+    const {rows} = await pool.query(`SELECT * FROM campanha 
+                                     WHERE $1 BETWEEN data_inicio AND data_fim`, [date])
+
+    return rows
+}
+
+const campaingByProtectionService = async(disease) => {
+    disease = "%" + disease + "%"
+
+    const {rows} = await pool.query(`select * from campanha c 
+    inner join campanhavacina c2 on c.id_campanha = c2.id_campanha
+    inner join vacina v on v.id_vacina = c2.id_vacina
+    where v.doenca_protecao ilike $1;`, [disease])
+
+    if(rows.length ===0){
+        return {"Message": "Não existe campanha ativa com esta proteção"}
+    }
+
+    return rows
+}
+
     module.exports = {
         createCampaingService,
         updateCampaingService,
         createVaccineInCampaingService,
-        deleteVaccineInCampaingService}
+        deleteVaccineInCampaingService,
+        searchCampaingForDataService,
+        campaingByProtectionService}

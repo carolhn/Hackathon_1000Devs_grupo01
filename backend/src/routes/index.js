@@ -2,7 +2,7 @@ const { Router } = require('express')
 const { createPacientController, updatePacientController, getPacientByIdController,
         getAllVaccineAppliedController, createVaccineAppliedController, deleteVaccineApliedController,
         getVacineByPeriodController, getVaccineProtectionController, protectionVaccineUntilYearControler,
-        protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler, createCampaingController, updateCampaingController, createVaccineInCampaingController, deleteVaccineInCampaingController } = require('../controller')
+        protectionVaccineExactYearControler, protectionVaccineUntilMonthControler, protectionVaccineExactMonthControler, createCampaingController, updateCampaingController, createVaccineInCampaingController, deleteVaccineInCampaingController, searchCampaingForDataController, campaingByProtectionController } = require('../controller')
 
 
 const routes = Router()
@@ -28,6 +28,8 @@ routes.post('/campanha', createCampaingController)
 routes.patch('/campanha/:id', updateCampaingController)
 routes.post('/campanha/vacina', createVaccineInCampaingController)
 routes.delete('/campanha/vacina/:id', deleteVaccineInCampaingController)
+routes.get('/campanhadate/:date', searchCampaingForDataController)
+routes.get('/campanhaprotecao/:disease', campaingByProtectionController)
 
 
 module.exports = routes

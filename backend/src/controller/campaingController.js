@@ -1,4 +1,4 @@
-const { createCampaingService, updateCampaingService, createVaccineInCampaingService, deleteVaccineInCampaingService } = require("../service/campaingService")
+const { createCampaingService, updateCampaingService, createVaccineInCampaingService, deleteVaccineInCampaingService, searchCampaingForDataService, campaingByProtectionService } = require("../service/campaingService")
 
 
 const createCampaingController = async (req, res) => {
@@ -32,8 +32,25 @@ const deleteVaccineInCampaingController = async(req, res) => {
     return res.status(204).send()
 }
 
+const searchCampaingForDataController = async(req, res) => {
+    const date = req.params.date
+    const response = await searchCampaingForDataService(date)
+
+    res.status(200).json(response)
+}
+
+const campaingByProtectionController = async(req, res) => {
+    const disease = req.params.disease
+
+    const response = await campaingByProtectionService(disease)
+
+    return res.status(200).json(response)
+}
+
 module.exports = {
     createCampaingController,
     updateCampaingController,
     createVaccineInCampaingController,
-    deleteVaccineInCampaingController}
+    deleteVaccineInCampaingController,
+    searchCampaingForDataController,
+    campaingByProtectionController}
