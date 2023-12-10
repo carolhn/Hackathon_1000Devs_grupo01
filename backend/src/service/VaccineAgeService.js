@@ -1,6 +1,6 @@
 const pool = require('../model/connection')
 
-const protectionVaccineUntilYearService = async (idadeAno) => {
+const getProtectionVaccineUntilYearService = async (idadeAno) => {
 
     const vaccineAgeProtectionAge = await pool.query(`select va.id_vacina, vacina, sigla_vacina, 
     doenca_protecao,dose, id_rede, qtd_ano_inicial, qtd_ano_final, desc_ano from vacina va join 
@@ -9,7 +9,7 @@ const protectionVaccineUntilYearService = async (idadeAno) => {
     return vaccineAgeProtectionAge.rows
 }
 
-const protectionVaccineExactYearService = async (idadeAno) => {
+const getProtectionVaccineExactYearService = async (idadeAno) => {
 
     const vaccineAgeProtectionAge = await pool.query(`select va.id_vacina, vacina, sigla_vacina, 
     doenca_protecao,dose, id_rede, qtd_ano_inicial, qtd_ano_final, desc_ano from vacina va join 
@@ -20,7 +20,7 @@ const protectionVaccineExactYearService = async (idadeAno) => {
 }
 
 
-const protectionVaccineUntilMonthService = async (idadeMes) => {
+const getProtectionVaccineUntilMonthService = async (idadeMes) => {
 
     const vaccineAgeProtectionMonth = await pool.query(`select va.id_vacina, vacina, sigla_vacina, 
     doenca_protecao,dose, id_rede, qtd_meses_inicial, qtd_meses_final, desc_meses from vacina va join 
@@ -30,7 +30,7 @@ const protectionVaccineUntilMonthService = async (idadeMes) => {
 }
 
 
-const protectionVaccineExactMonthService = async (idadeMes) => {
+const getProtectionVaccineExactMonthService = async (idadeMes) => {
 
     const vaccineAgeProtectionMonth = await pool.query(`select va.id_vacina, vacina, sigla_vacina, 
     doenca_protecao,dose, id_rede, qtd_meses_inicial, qtd_meses_final, desc_meses from vacina va join 
@@ -43,8 +43,8 @@ const protectionVaccineExactMonthService = async (idadeMes) => {
 
 
 module.exports = {
-    protectionVaccineUntilYearService,
-    protectionVaccineExactYearService,
-    protectionVaccineUntilMonthService,
-    protectionVaccineExactMonthService
+    getProtectionVaccineUntilYearService,
+    getProtectionVaccineExactYearService,
+    getProtectionVaccineUntilMonthService,
+    getProtectionVaccineExactMonthService
 }
